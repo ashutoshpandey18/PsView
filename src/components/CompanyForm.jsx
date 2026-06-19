@@ -29,6 +29,21 @@ export default function CompanyForm({
     }
   };
 
+  const handleClear = () => {
+    setCompanyContext({
+      name: '',
+      tagline: '',
+      website: '',
+      industry: '',
+      culture: '',
+      valueProp: '',
+      intent: '',
+      profiles: '',
+      defaultRole: '',
+      tone: 'calm'
+    });
+  };
+
   const handleFieldChange = (field, value) => {
     setCompanyContext(prev => ({ ...prev, [field]: value }));
   };
@@ -40,39 +55,7 @@ export default function CompanyForm({
 
   const renderBody = () => (
     <>
-      {/* Gemini API Key Input */}
-      <div className="form-group">
-        <label className="form-label">
-          Gemini API Key
-          <a
-            href="https://aistudio.google.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-text"
-            style={{ fontSize: '0.75rem' }}
-          >
-            Get Free Key
-          </a>
-        </label>
-        <div style={{ position: 'relative' }}>
-          <input
-            type="password"
-            className="form-input"
-            style={{ width: '100%', paddingLeft: '2.25rem' }}
-            placeholder="AIzaSy..."
-            value={apiKey}
-            onChange={(e) => setApiKey(e.target.value)}
-          />
-          <Key
-            size={14}
-            className="text-muted"
-            style={{ position: 'absolute', left: '0.75rem', top: '50%', transform: 'translateY(-50%)' }}
-          />
-        </div>
-        <p className="form-label" style={{ fontSize: '0.72rem', color: 'var(--text-muted)', lineHeight: '130%' }}>
-          Pre-filled with evaluation key for your convenience. Stored locally.
-        </p>
-      </div>
+
 
       {/* Presets Row */}
       <div className="form-group">
@@ -86,6 +69,21 @@ export default function CompanyForm({
           </button>
           <button type="button" className="preset-badge" onClick={() => handlePreFill('stripe')}>
             Stripe
+          </button>
+          <button
+            type="button"
+            className="preset-badge"
+            style={{
+              borderColor: 'var(--accent-purple)',
+              color: 'var(--accent-purple)',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.2rem'
+            }}
+            onClick={handleClear}
+          >
+            <Sparkles size={12} />
+            <span>Custom (Blank)</span>
           </button>
         </div>
       </div>
@@ -227,7 +225,7 @@ export default function CompanyForm({
   }
 
   return (
-    <div className="panel">
+    <div className="panel campaign-setup-panel">
       <div className="panel-header">
         <h3 className="panel-title">
           <Settings size={18} className="text-secondary" />

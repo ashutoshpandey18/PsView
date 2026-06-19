@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Send, MessageSquare, AlertCircle, Terminal, ChevronDown, ChevronUp } from 'lucide-react';
+import { Send, MessageSquare, AlertCircle, Terminal, ChevronDown, ChevronUp, Coins, Cpu, UserX, Calendar } from 'lucide-react';
 
 export default function ChatSimulator({
   selectedCandidate,
@@ -187,34 +187,42 @@ export default function ChatSimulator({
             <button
               type="button"
               className="quick-reply-btn"
+              style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem' }}
               disabled={isThinking}
               onClick={() => handleQuickReply("What is the compensation package/salary range for this role?")}
             >
-              💰 Ask about Comp
+              <Coins size={12} />
+              <span>Ask about Comp</span>
             </button>
             <button
               type="button"
               className="quick-reply-btn"
+              style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem' }}
               disabled={isThinking}
               onClick={() => handleQuickReply("Can you tell me more about the technical stack and engineering practices?")}
             >
-              🛠️ Ask about Tech Stack
+              <Cpu size={12} />
+              <span>Ask about Tech Stack</span>
             </button>
             <button
               type="button"
               className="quick-reply-btn"
+              style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem' }}
               disabled={isThinking}
               onClick={() => handleQuickReply("Thanks for reaching out, but I am currently happy at my company and not looking for a change.")}
             >
-              🙅 Polite Rejection
+              <UserX size={12} />
+              <span>Polite Rejection</span>
             </button>
             <button
               type="button"
               className="quick-reply-btn"
+              style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem' }}
               disabled={isThinking}
               onClick={() => handleQuickReply("That sounds interesting. I would be open to a quick 15-minute chat next week.")}
             >
-              📅 Accept Call / Interested
+              <Calendar size={12} />
+              <span>Accept Call / Interested</span>
             </button>
           </div>
         </div>
