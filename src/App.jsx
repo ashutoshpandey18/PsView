@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import CompanyForm from './components/CompanyForm';
 import AgentConfig from './components/AgentConfig';
 import ChatSimulator from './components/ChatSimulator';
+import ReasoningConsole from './components/ReasoningConsole';
 import ThemeToggle from './components/ThemeToggle';
 import { MOCK_COMPANIES, MOCK_CANDIDATES } from './constants/mockData';
 import { initializeAgent, generateAgentReply } from './api/gemini';
@@ -518,9 +519,9 @@ export default function App() {
             </button>
           </div>
 
-          {/* Interactive Workspace: Centered single-column chat simulator */}
-          <div style={{ display: 'flex', justifyContent: 'center', flex: 1, minHeight: '480px', overflow: 'visible' }}>
-            <div style={{ width: '100%', maxWidth: '720px', height: '100%', display: 'flex', flexDirection: 'column' }}>
+          {/* Interactive Workspace: Responsive side-by-side Chat & Agent Monitor */}
+          <div className="workspace-grid" style={{ overflow: 'visible' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
               <ChatSimulator
                 selectedCandidate={selectedCandidate}
                 conversationHistory={conversationHistory}
@@ -529,6 +530,14 @@ export default function App() {
                 persona={persona}
               />
             </div>
+            
+            <ReasoningConsole
+              currentThought={currentThought}
+              isThinking={isThinking}
+              persona={persona}
+              companyContext={companyContext}
+              candidate={selectedCandidate}
+            />
           </div>
         </main>
       )}
