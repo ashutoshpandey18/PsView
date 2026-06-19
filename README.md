@@ -2,7 +2,12 @@
 
 An interactive web application that simulates an autonomous AI recruiter agent that configures its persona and messaging sequence from any company profile and carries out simulated candidate dialogues with a real-time, side-by-side **Reasoning Console**.
 
+### 🔗 Quick Links
+- **Live Demo (Vercel):** [founding-eng.vercel.app](https://founding-eng.vercel.app/)
+- **Source Code (GitHub):** [github.com/ashutoshpandey18/PsView](https://github.com/ashutoshpandey18/PsView)
+
 ---
+
 
 ## What was Built
 * **Dynamic Setup Console:** Lets users configure custom company parameters, taglines, cultures, and recruiter tone settings. Includes a "Custom (Blank)" reset option.
