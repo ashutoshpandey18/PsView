@@ -200,7 +200,7 @@ export default function CompanyForm({
           type="submit"
           className="btn btn-primary"
           style={{ marginTop: '0.5rem', width: '100%' }}
-          disabled={isLoading || (mode === 'live' && !apiKey)}
+          disabled={isLoading || !apiKey}
         >
           {isLoading ? (
             <>
